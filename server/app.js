@@ -9,7 +9,16 @@ const mongoose           = require('mongoose');
 const passport           = require('passport');
 const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
+const authController     = require("./routes/auth-controller");
 require("dotenv").config();
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+require('./config/passport')(passport);
+var cors = require('cors');
+
+//situo esto para las routas back-end solo apps y modelos
+require('./routes')(app);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/petKinderGarden');
@@ -17,6 +26,20 @@ mongoose.connect('mongodb://localhost/petKinderGarden');
 
 
 const app = express();
+
+var whitelist = [
+    'http://localhost:4200',
+];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
+
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +56,14 @@ app.use(session({
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 })); */
 //ojo a esto
+
+// Passport config
+app.use(session({
+  secret: "passport-local-strategy",
+  resave: true,
+  saveUninitialized: true,
+  cookie : { httpOnly: true, maxAge: 2419200000 }
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -63,8 +94,7 @@ app.use('/', index);
 app.use('/users', users);
 */
 
-//situo esto para las routas back-end solo apps y modelos
-require('./routes')(app);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

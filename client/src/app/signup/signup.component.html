@@ -5,26 +5,41 @@
   <div class="row">
     <div class="col-sm-6 centered-form">
       <form action="/signup" method="post">
+
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" name="username" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" name="email" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <textarea name="address" class="form-control"></textarea>
+          <label> Username </label>
+          <input type="text" [(ngModel)]="formInfo.username" name="username"/>
         </div>
 
+        <div class="form-group">
+          <label> Password </label>
+          <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+        </div>
 
-        <button type="submit">Signup</button>
+        <div class="form-group">
+          <label> Email </label>
+          <input type="text" [(ngModel)]="formInfo.email" name="email"/>
+        </div>
+
+        <div class="form-group">
+          <label> address </label>
+          <input type="textarea" [(ngModel)]="formInfo.address" name="address"/>
+        </div>
+        <button (click)="login()"> login </button>
+        <button (click)="signup()"> signup </button>
       </form>
+      <div *ngIf="user">
+        <h2> You are now logged in as {{ user.username }}!! </h2>
+        <p> Here's the user object </p>
+        <pre> {{ user | json }} </pre>
+
+        <p *ngIf="privateData"> Here's some data fetched from a protected API </p>
+        <pre> {{ privateData | json }} </pre>
+
+        <button (click)="logout()"> logout </button>
+        <button (click)="getPrivateData()"> Get private data </button>
+      </div>
+
     </div>
   </div>
 </div>
