@@ -1,13 +1,13 @@
-const express        = require("express");
-const authController = express.Router();
-const passport = require("passport");
+const express         = require("express");
+const authController  = express.Router();
+const passport        = require("passport");
 
 // Our user model
-const User           = require("../model/user");
-const upload = require('../config/multer');
+const User            = require("../api/user");
+const upload          = require('../config/multer');
 
 // Bcrypt let us encrypt passwords
-const bcrypt         = require("bcrypt");
+const bcrypt         = require('bcrypt');
 const bcryptSalt     = 10;
 
 

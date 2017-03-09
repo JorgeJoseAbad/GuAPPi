@@ -12,13 +12,13 @@ const MongoStore         = require('connect-mongo')(session);
 const authController     = require("./routes/auth-controller");
 require("dotenv").config();
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+//var index = require('./routes/index');
+//var users = require('./routes/users');
 require('./config/passport')(passport);
 var cors = require('cors');
 
 //situo esto para las routas back-end solo apps y modelos
-require('./routes')(app);
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/petKinderGarden');
@@ -26,6 +26,7 @@ mongoose.connect('mongodb://localhost/petKinderGarden');
 
 
 const app = express();
+require('./routes')(app);
 
 var whitelist = [
     'http://localhost:4200',
