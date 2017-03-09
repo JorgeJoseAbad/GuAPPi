@@ -12,8 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 import {RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '/signup',  component: SignupComponent },
+  { path: '', redirectTo: 'header', pathMatch: 'full' },
+  //{ path: '/header', component: HeaderComponent },
+  { path: 'signup',  component: SignupComponent },
 ];
 
 @NgModule({
@@ -27,7 +28,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     AlertModule.forRoot(),
-    //RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
