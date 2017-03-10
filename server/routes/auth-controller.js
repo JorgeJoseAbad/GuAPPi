@@ -10,7 +10,7 @@ const upload          = require('../config/multer');
 const bcrypt         = require('bcrypt');
 const bcryptSalt     = 10;
 
-
+console.log("authController");
 authController.post("/signup", (req, res, next) => {
   console.log(req.body)
   var username = req.body.username;

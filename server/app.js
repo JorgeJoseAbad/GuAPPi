@@ -12,8 +12,8 @@ const MongoStore         = require('connect-mongo')(session);
 const authController     = require("./routes/auth-controller");
 require("dotenv").config();
 
-//var index = require('./routes/index');
-//var users = require('./routes/users');
+// var index = require('./routes/index');
+// var users = require('./routes/users');
 require('./config/passport')(passport);
 var cors = require('cors');
 
@@ -23,10 +23,14 @@ var cors = require('cors');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/petKinderGarden');
 
-
-
 const app = express();
-require('./routes')(app);
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 var whitelist = [
     'http://localhost:4200',
@@ -38,9 +42,11 @@ var corsOptions = {
     },
     credentials: true
 };
+
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({limit: '10mb', extended: false }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,6 +64,7 @@ app.use(session({
 })); */
 //ojo a esto
 
+
 // Passport config
 app.use(session({
   secret: "passport-local-strategy",
@@ -70,12 +77,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // ojo a esto
 app.use( (req, res, next) => {
@@ -88,13 +90,16 @@ app.use( (req, res, next) => {
 });
 // ojo a esto
 
-/* paquete de rutas que funcionaban para back-end
+//paquete de rutas que funcionaban para back-end
+/*
 const index = require('./routes/index');
-const users = require('./routes/users');
-app.use('/', index);
+//const users = require('./routes/users');
+//app.use('/', index);
 app.use('/users', users);
 */
 
+require('./routes/index')(app);
+app.use('/', authController);
 
 
 // catch 404 and forward to error handler

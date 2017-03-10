@@ -1,3 +1,4 @@
+
 const Q = require('q');
 const _ = require('lodash');
 const userModel = require('./user.model');
@@ -30,25 +31,31 @@ exports.createUser = function(req, res, next) {
         });
 };
 
-exports.readUser = function(req, res, next) {
-  	userModel.find({}, function(err, lists) {
-	 	if (err) {
-	 		return res.json(err);
-	 	}
-
-        return new Promise((resolve, reject) => {
-            userModel.populate(lists, 'cards')
-                .then((_lists) => {
-                    _.forEach(lists, (list) => {
-                        user.cards = _.orderBy(list.cards, ['position','title','_id']);
-                    });
-                    return res.json( lists );
-                })
-                .catch((error) => res.status(400).json({ message: 'impossible to retrieve user!!' }));
-        });
-  	});
+// exports.readUser = function(req, res, next) {
+//   	userModel.find({}, function(err, lists) {
+// 	 	if (err) {
+// 	 		return res.json(err);
+// 	 	}
+//
+//         return new Promise((resolve, reject) => {
+//             userModel.populate(lists, 'cards')
+//                 .then((_lists) => {
+//                     _.forEach(lists, (list) => {
+//                         user.cards = _.orderBy(list.cards, ['position','title','_id']);
+//                     });
+//                     return res.json( lists );
+//                 })
+//                 .catch((error) => res.status(400).json({ message: 'impossible to retrieve user!!' }));
+//         });
+//   	});
+// };
+exports.readUser = function(req, res, next){
+	const id = req.params.id;
+	userModel.findById(id, (err, user)=>{
+		if (err) return next(err);
+		res.status(200).json(user);
+	});
 };
-
 
 /*
 exports.editUser = function(req, res, next) {
