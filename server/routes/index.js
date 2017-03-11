@@ -8,6 +8,7 @@ module.exports = function(app) {
   app.use('/api/cat', require('../api/cat'));
   app.use('/api/kgarten', require('../api/kgarten'));
 
+
 	// catch 404 and forward to Angular
   app.all('/*', function (req, res) {
     //res.send(console.log(__dirname));

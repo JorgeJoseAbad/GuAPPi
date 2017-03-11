@@ -10,27 +10,21 @@ const passport           = require('passport');
 const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const authController     = require("./routes/auth-controller");
+var cors                 = require('cors');
+
 require("dotenv").config();
 
-// var index = require('./routes/index');
-// var users = require('./routes/users');
+var index = require('./routes/index');
+var users = require('./routes/users');
 require('./config/passport')(passport);
-var cors = require('cors');
 
-//situo esto para las routas back-end solo apps y modelos
 
+const app = express();
+require('./routes/index')(app);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/petKinderGarden');
 
-const app = express();
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
-app.use(express.static(path.join(__dirname, 'public')));
 
 var whitelist = [
     'http://localhost:4200',
@@ -42,27 +36,22 @@ var corsOptions = {
     },
     credentials: true
 };
-
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({limit: '10mb', extended: false }));
-
+app.use(bodyParser.urlencoded({ extended: false }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
 
-// app.js ojo a esto
-/*
-app.use(session({
-  secret: 'ironfundingdev',
-  resave: false,
-  saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
-})); */
-//ojo a esto
 
 
 // Passport config
@@ -78,28 +67,9 @@ app.use(passport.session());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-
-// ojo a esto
-app.use( (req, res, next) => {
-  if (typeof(req.user) !== "undefined"){
-    res.locals.userSignedIn = true;
-  } else {
-    res.locals.userSignedIn = false;
-  }
-  next();
-});
-// ojo a esto
-
-//paquete de rutas que funcionaban para back-end
-/*
-const index = require('./routes/index');
-//const users = require('./routes/users');
-//app.use('/', index);
-app.use('/users', users);
-*/
-
-require('./routes/index')(app);
 app.use('/', authController);
+
+app.use('/users', users);
 
 
 // catch 404 and forward to error handler
@@ -108,6 +78,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
