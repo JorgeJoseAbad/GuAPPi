@@ -3,7 +3,7 @@ const authController  = express.Router();
 const passport        = require("passport");
 
 // Our user model
-const User            = require("../api/user");
+const User            = require("../api/user/user.model");
 const upload          = require('../config/multer');
 
 // Bcrypt let us encrypt passwords
@@ -12,11 +12,11 @@ const bcryptSalt     = 10;
 
 console.log("authController");
 authController.post("/signup", (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   var username = req.body.username;
   var password = req.body.password;
-
-  console.log("asdfsd");
+  console.log(username);
+  console.log(password);
 
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
@@ -39,6 +39,7 @@ authController.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
+        console.log(err);
         res.status(400).json({ message: "Something went wrong" });
       } else {
         req.login(newUser, function(err) {
@@ -57,10 +58,11 @@ authController.post("/signup", (req, res, next) => {
 
 authController.post("/login", function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+    console.log("antes de rror");
     if (err) { return next(err); }
-
+console.log("antes de return status 401");
     if (!user) { return res.status(401).json(info); }
-
+console.log("antes de login");
     req.login(user, function(err) {
       if (err) {
         return res.status(500).json({

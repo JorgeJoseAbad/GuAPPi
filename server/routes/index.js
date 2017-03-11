@@ -10,16 +10,13 @@ module.exports = function(app) {
 
 
 	// catch 404 and forward to Angular
+  /*
   app.all('/*', function (req, res) {
     //res.send(console.log(__dirname));
     res.send("ruta equivocada est es el idex.js de routes, deberia ir al auth-controller");
     res.sendFile(__dirname + '/public/index.html');
-  });
+  });*/
 };
-
-
-
-
 
 /*
 
