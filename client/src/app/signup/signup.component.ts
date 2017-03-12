@@ -12,7 +12,9 @@ export class SignupComponent implements OnInit {
   user: any;
    formInfo = {
      username: '',
-     password: ''
+     password: '',
+     email: '',
+     address: ''
    };
    error: string;
    privateData: any = '';
@@ -36,6 +38,7 @@ export class SignupComponent implements OnInit {
    }
 
    signup() {
+     console.log(this.formInfo);
      this.session.signup(this.formInfo)
        .subscribe(
          (user) => this.successCb(user),

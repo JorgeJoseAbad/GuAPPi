@@ -11,12 +11,17 @@ const bcrypt         = require('bcrypt');
 const bcryptSalt     = 10;
 
 console.log("authController");
+
 authController.post("/signup", (req, res, next) => {
   console.log(req.body);
   var username = req.body.username;
   var password = req.body.password;
+  var email    = req.body.email;
+  var address  = req.body.address;
   console.log(username);
   console.log(password);
+  console.log(email);
+  console.log(address);
 
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
@@ -34,8 +39,11 @@ authController.post("/signup", (req, res, next) => {
 
     var newUser = User({
       username,
-      password: hashPass
+      password: hashPass,
+      email,
+      address
     });
+    console.log(newUser);
 
     newUser.save((err) => {
       if (err) {
@@ -58,13 +66,15 @@ authController.post("/signup", (req, res, next) => {
 
 authController.post("/login", function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    console.log("antes de rror");
+    console.log("intentamos hacer login");
+    console.log(err);
     if (err) { return next(err); }
-console.log("antes de return status 401");
+
     if (!user) { return res.status(401).json(info); }
-console.log("antes de login");
+
     req.login(user, function(err) {
       if (err) {
+        console.log ("dentro del reglogin");
         return res.status(500).json({
           message: 'something went wrong :('
         });

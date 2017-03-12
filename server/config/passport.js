@@ -1,5 +1,6 @@
 var LocalStrategy  = require('passport-local').Strategy;
-var User           = require('../api/user');
+//var User           = require('../api/user');
+const User            = require("../api/user/user.model");
 const bcrypt       = require("bcrypt");
 
 module.exports = function (passport) {
@@ -7,6 +8,7 @@ module.exports = function (passport) {
   passport.use(new LocalStrategy((username, password, next) => {
     User.findOne({ username }, (err, user) => {
       if (err) {
+
         return next(err);
       }
 
