@@ -17,7 +17,7 @@ const dogSchema = new mongoose.Schema({
     required: true, //indice relacional propietario
   },
 
-  name: {
+  dogName: {
     type: String,
     require: true
   },

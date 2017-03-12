@@ -10,18 +10,21 @@ import { AlertModule } from 'ng2-bootstrap';
 import { SignupComponent } from './signup/signup.component';
 
 import {RouterModule, Routes } from "@angular/router";
+import { DogComponent } from './dog/dog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
   //{ path: '/header', component: HeaderComponent },
   { path: 'signup',  component: SignupComponent },
+  { path: 'dog', component: DogComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SignupComponent
+    SignupComponent,
+    DogComponent
   ],
   imports: [
     BrowserModule,

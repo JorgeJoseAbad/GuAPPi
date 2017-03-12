@@ -1,0 +1,12 @@
+<p>
+  dog works!
+</p>
+<h1> Dog list </h1>
+<div>
+  <div *ngFor="let dog of dogs">
+    <img [src]="dog.image" />
+    <h3> {{ dog.dogName }}&nbsp;</h3>
+    <p> {{ dog.breed }} </p>
+    <a [routerLink]="['dog', dog._id]"> View Details </a>
+  </div>
+</div>
