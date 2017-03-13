@@ -34,6 +34,23 @@ exports.createDog = function(req, res, next) {
         });
 };
 
+
+
+exports.readDogs=function(req,res,next){
+
+	  	dogModel.find({}, function(err, dogs) {
+		 	if (err) {
+		 		return res.json(err);
+		 	}
+			return res.json(dogs);
+	        
+	  	});
+
+
+};
+
+
+
 /*
 exports.createList = function(req, res, next) {
 	var item = new listModel({

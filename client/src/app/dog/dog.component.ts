@@ -32,7 +32,7 @@ export class DogComponent implements OnInit {
         });
       }*/
 
-      
+
 
       getDogDetails(id) {
         this.dog.get(id)
@@ -40,7 +40,7 @@ export class DogComponent implements OnInit {
             this.dog = dog;
           });
       }
-
+/* mas adelante
       deleteDog(id) {
       if (window.confirm('Are you sure?')) {
         this.dog.remove(id)
@@ -48,5 +48,5 @@ export class DogComponent implements OnInit {
             this.router.navigate(['']);
           });
           }
-    }
+    }*/
 }
