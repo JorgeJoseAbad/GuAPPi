@@ -14,7 +14,8 @@ const dogSchema = new mongoose.Schema({
   user_id: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true, //indice relacional propietario
+    required: false, //indice relacional propietario
+    default: 111111111111
   },
 
   dogName: {

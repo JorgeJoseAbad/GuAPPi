@@ -10,19 +10,28 @@ const passport           = require('passport');
 const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const authController     = require("./routes/auth-controller");
-var cors                 = require('cors');
+const cors               = require('cors');
+require("dotenv").config();
 
-
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/petKinderGarden');
 
 const app = express();
 
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+//mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI);
+console.log("connecting to mongo: ");
+
+
 require('./routes/index')(app);
-require("dotenv").config();
+
 
 
 require('./config/passport')(passport);
@@ -43,16 +52,12 @@ var corsOptions = {
     },
     credentials: true
 };
-app.use(cors(corsOptions));
+//ojo, cambio credentials de true a false
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(logger('dev'));
-app.use(cookieParser());
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.set('layout', 'layouts/main-layout');

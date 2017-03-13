@@ -4,7 +4,7 @@ const _ = require('lodash');
 mongoose = require('mongoose');
 const dogModel = require('./dog.model');
 
-//bodyparser.json()
+
 
 console.log("he llegado a controlador de chuhos");
 
@@ -18,12 +18,13 @@ exports.createDog = function(req, res, next) {
       description:req.body.description,
 
 	});
-
+	console.log(item);
 	Q.nfcall(item.save.bind(item))
         .then(function () {
 						console.log(item);
             res.json({
                 _id: item._id,
+								user_id: item.user_id,
                 dogName: item.dogName,
                 breed: item.breed,
                 age: item.age,

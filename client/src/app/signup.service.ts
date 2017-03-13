@@ -21,26 +21,27 @@ export class SignupService {
     }
 
     login(user) {
-      return this.http.post(`${BASEURL}/login`, user,{withCredentials:true})
+      return this.http.post(`${BASEURL}/login`, user,{withCredentials:false})
         .map(res => res.json())
         .catch(this.handleError);
     }
 
     logout() {
-      return this.http.post(`${BASEURL}/logout`, {withCredentials:true})
+      return this.http.post(`${BASEURL}/logout`, {withCredentials:false})
         .map(res => res.json())
         .catch(this.handleError);
     }
 
     isLoggedIn() {
-      return this.http.get(`${BASEURL}/loggedin`,{withCredentials:true})
+      return this.http.get(`${BASEURL}/loggedin`,{withCredentials:false})
         .map(res => res.json())
         .catch((err) => this.handleError(err));
     }
 
     getPrivateData() {
-      return this.http.get(`${BASEURL}/private`,{withCredentials:true})
+      return this.http.get(`${BASEURL}/private`,{withCredentials:false})
         .map(res => res.json())
         .catch(this.handleError);
     }
 }
+//he cambiado todos lod withCredential de true a false para poder hacer login
