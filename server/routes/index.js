@@ -1,12 +1,14 @@
 var path = require('path');
+var express = require('express'); //incluyo esto
+var router = express.Router(); //incluyo esto
 
 module.exports = function(app) {
 
-  app.use('/api/user', require('../api/user')); //por defecto se va al index.js
-  app.use('/api/pet', require('../api/pet'));
+  //app.use('/api/user', require('../api/user')); //por defecto se va al index.js
+  //app.use('/api/pet', require('../api/pet'));
   app.use('/api/dog', require('../api/dog')); //por defecto se va al index.js
-  app.use('/api/cat', require('../api/cat'));
-  app.use('/api/kgarten', require('../api/kgarten'));
+  //app.use('/api/cat', require('../api/cat'));
+  //app.use('/api/kgarten', require('../api/kgarten'));
 
 
 	// catch 404 and forward to Angular

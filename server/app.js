@@ -12,18 +12,25 @@ const MongoStore         = require('connect-mongo')(session);
 const authController     = require("./routes/auth-controller");
 var cors                 = require('cors');
 
-require("dotenv").config();
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-require('./config/passport')(passport);
-
-
-const app = express();
-require('./routes/index')(app);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/petKinderGarden');
+
+const app = express();
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+require('./routes/index')(app);
+require("dotenv").config();
+
+
+require('./config/passport')(passport);
+
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+
 
 
 var whitelist = [
@@ -38,8 +45,7 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -67,6 +73,7 @@ app.use(passport.session());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+app.use('/api',index); //incluyo esto para seguir la ruta
 app.use('/', authController);
 
 app.use('/users', users);

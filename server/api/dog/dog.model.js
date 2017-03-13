@@ -24,7 +24,7 @@ const dogSchema = new mongoose.Schema({
 
   breed: {
     type: String,
-    enum: BREED,
+    enum: BREED
   },
 
   age: {
