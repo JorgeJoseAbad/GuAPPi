@@ -39,6 +39,7 @@ require('./config/passport')(passport);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+//var images = require('./public/images');
 
 
 
@@ -77,6 +78,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 
 app.use('/api',index); //incluyo esto para seguir la ruta
 app.use('/', authController);

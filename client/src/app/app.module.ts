@@ -14,6 +14,7 @@ import { DogComponent } from './dog/dog.component';
 import { LoginComponent } from './login/login.component';
 
 import { FileSelectDirective } from "ng2-file-upload";
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
     SignupComponent,
     DogComponent,
     LoginComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
