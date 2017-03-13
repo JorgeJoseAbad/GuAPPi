@@ -13,6 +13,8 @@ import {RouterModule, Routes } from "@angular/router";
 import { DogComponent } from './dog/dog.component';
 import { LoginComponent } from './login/login.component';
 
+import { FileSelectDirective } from "ng2-file-upload";
+
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
   //{ path: '/header', component: HeaderComponent },
@@ -27,7 +29,8 @@ const routes: Routes = [
     HeaderComponent,
     SignupComponent,
     DogComponent,
-    LoginComponent
+    LoginComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

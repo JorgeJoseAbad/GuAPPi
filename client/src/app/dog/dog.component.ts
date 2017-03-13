@@ -33,7 +33,6 @@ export class DogComponent implements OnInit {
       }*/
 
 
-
       getDogDetails(id) {
         this.dog.get(id)
           .subscribe((dog) => {

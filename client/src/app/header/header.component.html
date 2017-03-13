@@ -1,7 +1,19 @@
 
 <div class="main-container">
+
+  <div class="container-fluid">
+    <div class="home-heading text-center row">
+      <div class="home-heading-wrapper">
+        <h3>GuAAPi cuida de tu mascotas</h3>
+        <!--<p>GuAPPi es la página para cuidar tus animales si vas de viaje</p>
+        <a class="btn btn-default" href="#">GUAU, GUAU!!!</a>-->
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar">
-        <div class="container-fluid">
+      <div class="container-fluid">
+
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#home-nav" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -10,36 +22,35 @@
               <span class="icon-bar"></span>
             </button>
           </div>
+
           <div class="collapse navbar-collapse" id="home-nav">
+
             <ul class="nav navbar-nav">
               <li class="nav-logo">
                 <a href="#" class="nav-logo-link">
-                  <img class="nav-logo-image" src="http://www.tkgsh.tn.edu.tw/wpy/allpicture/snoopy/100k/Snoopy11_small.jpg" alt="GuAPPi Logo">
+                    <img class="img-circle" src='http://localhost:3000/public/images/snoopy222.jpg' alt="GuAPPi Logo">
+                  <!--<img class="img-circle" src="http://www.tkgsh.tn.edu.tw/wpy/allpicture/snoopy/100k/Snoopy11_small.jpg" alt="GuAPPi Logo">-->
                 </a>
               </li>
+            </ul>
 
-              <li><a [routerLink]="['dog']">Mis perros</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="#">
-                  <span class="glyphicon glyphicon-search"></span>
-                </a>
-              </li>
-              <li><a [routerLink]="['login']">login</a></li>
-              <li><a [routerLink]="['signup']">Signup</a></li>
-              <li><a href="#">Profile</a></li>
+
+              <div class="nav navbar-nav navbar-right nav-links">
+                <li>
+                  <a href="#">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </a>
+                </li>
+                <li><a [routerLink]="['login']">login</a></li>
+                <li><a [routerLink]="['signup']">Signup</a></li>
+                <li><a [routerLink]="['dog']">Mis perros</a></li>
+                <li><a [routerLink]="['']">Profile</a></li>
+              </div>
             </ul>
+
           </div>
-        </div>
-      </nav>
-      <div class="container-fluid">
-        <div class="home-heading text-center row">
-          <div class="home-heading-wrapper">
-            <h1>GuAAPi cuida de tu chuchos</h1>
-            <p>GuAPPi es la página para cuidar tus animales si vas de viaje</p>
-            <a class="btn btn-default" href="#">GUAU, GUAU!!!</a>
-          </div>
-        </div>
       </div>
+    </nav>
+
 </div>
