@@ -11,11 +11,13 @@ import { SignupComponent } from './signup/signup.component';
 
 import {RouterModule, Routes } from "@angular/router";
 import { DogComponent } from './dog/dog.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
   //{ path: '/header', component: HeaderComponent },
-  { path: 'signup',  component: SignupComponent },
+  { path: 'signup',  component: SignupComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'dog', component: DogComponent}
 ];
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     SignupComponent,
-    DogComponent
+    DogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
