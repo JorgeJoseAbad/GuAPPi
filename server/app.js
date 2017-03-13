@@ -33,14 +33,12 @@ console.log("connecting to mongo: ");
 require('./routes/index')(app);
 
 
-
 require('./config/passport')(passport);
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 //var images = require('./public/images');
-
 
 
 var whitelist = [
@@ -55,7 +53,6 @@ var corsOptions = {
 };
 //ojo, cambio credentials de true a false
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -63,7 +60,6 @@ app.set('view engine', 'ejs');
 
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
-
 
 
 // Passport config
@@ -79,7 +75,13 @@ app.use(passport.session());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+app.get('/public/images/snoopy222.jpg', function(req, res, next) {
+  res.sendfile(__dirname + '/public/images/snoopy222.jpg');
+  //res.send('respond with a resource');
+});
 
+
+//app.use('/public', users);
 app.use('/api',index); //incluyo esto para seguir la ruta
 app.use('/', authController);
 
