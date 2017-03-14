@@ -10,7 +10,6 @@ export class DogService {
   getList() {
     return this.http.get(`${this.BASE_URL}/api/dog`)
       .map((res) => res.json());
-
   }
 
   get(id) {

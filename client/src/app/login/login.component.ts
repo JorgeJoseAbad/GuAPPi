@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,private session: SignupService) { }
 
+
+
   ngOnInit() {
     this.session.isLoggedIn()
        .subscribe(
@@ -32,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   login() {
      console.log(this.formInfo);
+     console.log(this.formInfo.username);
      this.session.login(this.formInfo)
        .subscribe(
          (user) => this.successCb(user),

@@ -1,18 +1,20 @@
 <!--<p>
   dog works!
 </p>-->
-<h1> Dog list </h1>
-<div class="r">
-  <div class="r-center">
-    antes bucle for
+<h3> Dog list </h3>
+
+<button (click)="getListDogs()"> view my dogs </button>
+<!--<button (click)"createNewDog()"> I have a new dog</button>-->
+
     <div *ngFor="let dog of dogs" class="col-md-1">
       <div >
         <!--<img [src]="dog.image" />-->
-        <h3> {{ dog.dogName }}&nbsp;</h3>
-        <p> {{ dog.breed }} </p>
-        <p> {{ dog.age }} years old</p>
-        <a [routerLink]="['dog', dog._id]"> View Details </a>
+          <h3> {{ dog.dogName }}&nbsp;</h3>
+          <p> {{ dog.breed }} </p>
+          <p> {{ dog.age }} years old</p>
+          <p> {{dog.description}} </p>
+          <p> {{dog.imgUrl}}</p>
+
+        <button (click)="sendDogKgarten(dog._id)"> Send Kgarten </button>
       </div>
     </div>
-  </div>
-</div>

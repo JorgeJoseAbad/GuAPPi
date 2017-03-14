@@ -19,26 +19,36 @@ export class DogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dog.getList()
-      .subscribe((dogs) => {
-        this.dogs = dogs;
-      });
+    //this.dog.getList()
+    //  .subscribe((dogs) => {
+    //    this.dogs = dogs;
+    //  });
+  }
 
-    }
+    getListDogs(){
+        this.dog.getList()
+          .subscribe((dogs) => {
+            this.dogs = dogs;
+            console.log("lista de perros");
+          });
+        }
 /*
-    ngOnInit() {
-        this.route.params.subscribe(params => {
-          this.getPhoneDetails(params['id']);
-        });
-      }*/
+  createNewDog(){
+    this.dog.add().suscribe
 
+   }
+*/
 
-      getDogDetails(id) {
+/*
+    getDogDetails(id) {
         this.dog.get(id)
           .subscribe((dog) => {
             this.dog = dog;
+            console.log("respuesta getdogdetails",this.dog);
           });
-      }
+
+    }
+*/
 /* mas adelante
       deleteDog(id) {
       if (window.confirm('Are you sure?')) {

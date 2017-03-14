@@ -17,12 +17,17 @@ import { FileSelectDirective } from "ng2-file-upload";
 import { FooterComponent } from './footer/footer.component';
 import { CentralareaComponent } from './centralarea/centralarea.component';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+import { KgartenComponent } from './kgarten/kgarten.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
   //{ path: '/header', component: HeaderComponent },
   { path: 'signup',  component: SignupComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'dog', component: DogComponent}
+  { path: 'dog', component: DogComponent},
+  { path: 'dog/:id', component: DogComponent}
 ];
 
 @NgModule({
@@ -34,14 +39,19 @@ const routes: Routes = [
     LoginComponent,
     FileSelectDirective,
     FooterComponent,
-    CentralareaComponent
+    CentralareaComponent,
+    GooglemapComponent,
+    KgartenComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'MYapyid'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

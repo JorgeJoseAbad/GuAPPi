@@ -13,24 +13,25 @@ const kgartenSchema = new mongoose.Schema({
   userAdopt_id: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true, //indice relacional adoptante
-  },
-  pet_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'Pet', // referencia al animal
-    required: false, //indice relacional animal
+    required: false, //indice relacional adoptante
   },
   dog_id: {
     type: Schema.Types.ObjectId,
     ref: 'Dog', // referencia al animal
     required: false, //indice relacional animal
   },
-  cat_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'Cat', // referencia al animal
-    required: false, //indice relacional animal
-  },
-
+  coordinates: {
+  	lat: {
+           type: Number,
+           required: false,
+           default: 41.3977381,
+         },
+  	lng: {
+            type: Number,
+            required: false,
+            default: -3.190471916,
+          },
+        },
    dateInit:{
      type: Date,
      required: true

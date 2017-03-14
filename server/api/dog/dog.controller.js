@@ -35,21 +35,25 @@ exports.createDog = function(req, res, next) {
 };
 
 
-
 exports.readDogs=function(req,res,next){
-
 	  	dogModel.find({}, function(err, dogs) {
 		 	if (err) {
 		 		return res.json(err);
 		 	}
 			return res.json(dogs);
-	        
 	  	});
-
 
 };
 
-
+exports.readDog=function(req,res,next){
+			console.log(req.params.id);
+	  	dogModel.find({_id:req.params.id}, function(err, dog) {
+				if (err) {
+					return res.json(err);
+				}
+				return res.json(dog);
+	  	});
+   };
 
 /*
 exports.createList = function(req, res, next) {
