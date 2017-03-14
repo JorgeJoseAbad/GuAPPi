@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import { AlertModule } from 'ng2-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './signup/signup.component';
 
 import {RouterModule, Routes } from "@angular/router";
@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 
 import { FileSelectDirective } from "ng2-file-upload";
 import { FooterComponent } from './footer/footer.component';
+import { CentralareaComponent } from './centralarea/centralarea.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
@@ -32,14 +33,15 @@ const routes: Routes = [
     DogComponent,
     LoginComponent,
     FileSelectDirective,
-    FooterComponent
+    FooterComponent,
+    CentralareaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AlertModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
