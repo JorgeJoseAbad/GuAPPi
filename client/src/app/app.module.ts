@@ -20,6 +20,7 @@ import { CentralareaComponent } from './centralarea/centralarea.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { KgartenComponent } from './kgarten/kgarten.component';
+import { NewDogComponent } from './newDog/newDog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'signup',  component: SignupComponent},
   { path: 'login', component: LoginComponent},
   { path: 'dog', component: DogComponent},
-  { path: 'dog/:id', component: DogComponent}
+  { path: 'newDog', component: NewDogComponent}
 ];
 
 @NgModule({
@@ -41,7 +42,8 @@ const routes: Routes = [
     FooterComponent,
     CentralareaComponent,
     GooglemapComponent,
-    KgartenComponent
+    KgartenComponent,
+    NewDogComponent
   ],
   imports: [
     BrowserModule,

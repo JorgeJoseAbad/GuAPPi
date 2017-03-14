@@ -4,6 +4,7 @@
 <h3> Dog list </h3>
 
 <button (click)="getListDogs()"> view my dogs </button>
+<li><a [routerLink]="['../newDog']">NuevoPerro</a></li>
 <!--<button (click)"createNewDog()"> I have a new dog</button>-->
 
     <div *ngFor="let dog of dogs" class="col-md-1">
