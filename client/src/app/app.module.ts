@@ -21,7 +21,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { KgartenComponent } from './kgarten/kgarten.component';
 import { NewDogComponent } from './newDog/newDog.component';
-
+import { DogService} from './dog.service'
 
 
 const routes: Routes = [
@@ -59,7 +59,7 @@ const routes: Routes = [
       libraries: ["places"]
     })
   ],
-  providers: [],
+  providers: [DogService],
   bootstrap: [AppComponent]
 })
 
