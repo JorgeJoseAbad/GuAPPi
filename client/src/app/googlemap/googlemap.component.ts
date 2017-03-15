@@ -19,16 +19,16 @@ export class GooglemapComponent implements OnInit {
 
   log(){
     console.log(this.dogs);
-    console.log(this.dogs[2].latitude);
-    console.log(this.dogs[2].longitude);
+    console.log(this.dogs[3].latitude);
+    console.log(this.dogs[3].longitude);
 
     var dogMarker = new google.maps.Marker({
         position: {
-          lat: this.dogs[2].latitude,
-          lng: this.dogs[2].longitude
+          lat: this.dogs[3].latitude,
+          lng: this.dogs[3].longitude
         },
         map: this.map,
-        title: this.dogs[2].dogName,
+        title: this.dogs[3].dogName,
       });
       console.log(dogMarker);
     }

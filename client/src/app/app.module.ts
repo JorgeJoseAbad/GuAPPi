@@ -55,7 +55,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'MyAppi',
+      apiKey: 'AIzaSyCdJpr_rVP-qvc01Ci8ozFEnNVnS1wqUAc',
       libraries: ["places"]
     })
   ],
