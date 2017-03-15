@@ -15,7 +15,7 @@ const dogSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: false, //indice relacional propietario
-    default: 111111111111
+    //default: 1111111111
   },
 
   dogName: {
@@ -37,7 +37,14 @@ const dogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-
+  latitude:{
+    type: Number,
+    required: false
+  },
+  longitude:{
+    type: Number,
+    required: false
+  },
   imgUrl     : {
     type: String,
     default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250"

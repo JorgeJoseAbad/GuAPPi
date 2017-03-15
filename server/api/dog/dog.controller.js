@@ -16,6 +16,8 @@ exports.createDog = function(req, res, next) {
       breed: req.body.breed,
       age:req.body.age,
       description:req.body.description,
+			latitude:req.body.latitude,
+			longitude:req.body.longitude
 
 	});
 	console.log(item);
@@ -28,6 +30,8 @@ exports.createDog = function(req, res, next) {
                 dogName: item.dogName,
                 breed: item.breed,
                 age: item.age,
+								latitude: item.latitude,
+								longitude: item.longitude,
                 created_at:item.created_at,
                 updated_at: item.updated_at
             });

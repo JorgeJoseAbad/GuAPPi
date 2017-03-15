@@ -14,7 +14,8 @@ export class NewDogService {
   newDog(dog) {
     return this.http.post(`${BASEURL}/api/dog`, dog)
       .map(res => res.json())
-      .catch(this.handleError);
+      //.catch(this.handleError);
   }
+  
 
 }

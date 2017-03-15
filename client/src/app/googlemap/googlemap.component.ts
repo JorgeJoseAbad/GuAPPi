@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./googlemap.component.css']
 })
 export class GooglemapComponent implements OnInit {
-  title: string = 'My first angular2-google-maps project';
+  title: string = 'Dogs Map';
   lat: number = 40.45;
   lng: number = -3.65500;
   constructor() { }

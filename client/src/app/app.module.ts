@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { KgartenComponent } from './kgarten/kgarten.component';
 import { NewDogComponent } from './newDog/newDog.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'header', pathMatch: 'full' },
@@ -46,13 +48,15 @@ const routes: Routes = [
     NewDogComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'MYapyid'
+      apiKey: 'AIzaSyCdJpr_rVP-qvc01Ci8ozFEnNVnS1wqUAc',
+      libraries: ["places"]
     })
   ],
   providers: [],
