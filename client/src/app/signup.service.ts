@@ -27,7 +27,7 @@ export class SignupService {
     }
 
     logout() {
-      return this.http.post(`${BASEURL}/logout`, {withCredentials:false})
+      return this.http.post(`${BASEURL}/logout`,{},{withCredentials:false})
         .map(res => res.json())
         .catch(this.handleError);
     }

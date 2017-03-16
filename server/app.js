@@ -76,7 +76,7 @@ app.use(passport.session());
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.get('/public/images/snoopy222.jpg', function(req, res, next) {
-  res.sendfile(__dirname + '/public/images/snoopy222.jpg');
+  res.sendFile(__dirname + '/public/images/snoopy222.jpg');
   //res.send('respond with a resource');
 });
 

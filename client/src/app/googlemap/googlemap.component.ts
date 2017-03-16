@@ -28,13 +28,13 @@ export class GooglemapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dogService.getList().subscribe((dogs)=> this.dogs = dogs )
+    //this.dogService.getList().subscribe((dogs)=> this.dogs = dogs )
   }
 
   log(){
 
-
-    //var map = new google.maps.Map(document.getElementById("map"));
+  this.dogService.getList().subscribe((dogs)=> this.dogs = dogs )
+    //ahora esta funcion log solo sirve para sacar datos por consola
 
     console.log(this.dogs);
      for (let i=0;i< this.dogs.length;i++){
