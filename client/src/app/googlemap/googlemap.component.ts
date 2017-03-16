@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { DogService } from '../dog.service';
 import { MapsAPILoader,AgmCoreModule } from 'angular2-google-maps/core';
 import { SebmGoogleMap, SebmGoogleMapMarker } from 'angular2-google-maps/core';
@@ -17,7 +17,8 @@ export class GooglemapComponent implements OnInit {
   lng: number = -3.65500;
   dogs = [];
   map;
-
+  @ViewChild("search")
+  public searchElementRef: ElementRef
   dogMarker;
   coordPerro;
 
