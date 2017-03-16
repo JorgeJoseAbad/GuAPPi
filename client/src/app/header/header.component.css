@@ -1,12 +1,13 @@
+
+
 .container-fluid{
   background-color: #CC9C9C;
+  height: 70px;
+
 }
 
 .img-circle{
-  height: 25%;
+  height: 80%;
   width: 25%;
-}
-
-.nav-links{
-  padding-top: 5px;
+  padding-bottom: 50px;
 }

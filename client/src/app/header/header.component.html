@@ -1,34 +1,55 @@
 
 <div class="main-container">
 
-    <div class="container-fluid">
+ <div class="container-fluid">
       <div class="home-heading text-center row">
-        <div class="home-heading-wrapper">
-          <h3>GuAAPi cuida de tu mascotas</h3>
-        </div>
+          <h3>GuAAPi takes care of your pets</h3>
       </div>
+    </div>
 
-
+  <div class="container-fluid">
     <nav class="navbar">
+
+          <div class="row">
+                   <div class="logo-image">
+                      <a href="#" class="nav-logo-link">
+                        <img class="img-circle" src="http://localhost:3000/public/images/snoopy222.jpg" alt="GuAPPi Logo">
+                      </a>
+                    </div>
+
+                    <div class="col-md-1">
+                      <a [routerLink]="['login']">login</a>
+                    </div>
+                      <div class="col-md-1">
+                    <a [routerLink]="['signup']"> Signup</a>
+                    </div>
+                      <div class="col-md-1">
+                    <a [routerLink]="['dog']"> Dogs </a>
+                    </div>
+                      <div class="col-md-1">
+                      <a [routerLink]="['']"> Profile</a>
+                    </div>
+
+
+        </div>
+    </nav>
+    <!--<nav class="navbar">
         <div class="container-fluid">
           <div class="row">
 
+                    <a href="#" class="nav-logo-link">
+                      <img class="img-circle" src="http://localhost:3000/public/images/snoopy222.jpg" alt="GuAPPi Logo">
+                    </a>
+
               <ul class="nav navbar-nav">
-                <li class="nav-logo">
-                  <a href="#" class="nav-logo-link">
-                    <img class="img-circle" src="http://localhost:3000/public/images/snoopy222.jpg" alt="GuAPPi Logo">
-                  </a>
-                </li>
                   <li><a [routerLink]="['login']">login</a></li>
                   <li><a [routerLink]="['signup']">Signup</a></li>
                   <li><a [routerLink]="['dog']">Mis perros</a></li>
                   <li><a [routerLink]="['']">Profile</a></li>
               </ul>
-
-            <!--</div>-->
           </div>
         </div>
-    </nav>
+    </nav>-->
   </div>
 
 </div>

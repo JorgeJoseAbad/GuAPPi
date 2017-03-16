@@ -1,24 +1,26 @@
 <!--<p>
   dog works!
 </p>-->
-<h3> Dog list </h3>
+<div class="dogList1">
+<h3> Dogs list </h3>
 
 <button (click)="getListDogs()"> view my dogs </button>
-<li><a [routerLink]="['../newDog']">NuevoPerro</a></li>
+<li><a [routerLink]="['../newDog']">Add a new Dog</a></li>
 <!--<button (click)"createNewDog()"> I have a new dog</button>-->
 
-    <div *ngFor="let dog of dogs" class="col-md-1">
+    <div *ngFor="let dog of dogs" class="dogList2">
       <div >
         <!--<img [src]="dog.image" />-->
-         
+
           <h3> {{ dog.dogName }}&nbsp;</h3>
           <p> {{ dog.breed }} </p>
           <p> {{ dog.age }} years old</p>
           <p> {{dog.description}} </p>
-          <p> {{dog.imgUrl}}</p>
-          <p> {{dog.latitude}}</p>
-          <p> {{dog.longitude}}</p>
+          <!--<p> {{dog.imgUrl}}</p>-->
+          <p> Pos lat: {{dog.latitude}}</p>
+          <p> Pos long: {{dog.longitude}}</p>
 
         <button (click)="sendDogKgarten(dog._id)"> Send Kgarten </button>
       </div>
     </div>
+  </div>
