@@ -21,7 +21,9 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { KgartenComponent } from './kgarten/kgarten.component';
 import { NewDogComponent } from './newDog/newDog.component';
-import { DogService} from './dog.service'
+import { DogService} from './dog.service';
+
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 const routes: Routes = [
@@ -40,7 +42,6 @@ const routes: Routes = [
     SignupComponent,
     DogComponent,
     LoginComponent,
-    FileSelectDirective,
     FooterComponent,
     CentralareaComponent,
     GooglemapComponent,
@@ -52,6 +53,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    FileUploadModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
