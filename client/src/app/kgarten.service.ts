@@ -3,12 +3,13 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../environments/environment';
 
 //dejo esto a la espera de implrmemntar la BBDD
 
 @Injectable()
 export class KgartenService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = environment.apiUrl;
 
   constructor(private http: Http) { }
 

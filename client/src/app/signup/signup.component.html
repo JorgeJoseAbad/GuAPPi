@@ -32,9 +32,7 @@
 
       </form>
       <div *ngIf="user">
-        <h2> You are now logged in as {{ user.username }}!! </h2>
-        <p> Here's the user object </p>
-        <pre> {{ user | json }} </pre>
+        <h4> You have sing up as {{ user.username }}!! </h4>
 
         <p *ngIf="privateData"> Here's some data fetched from a protected API </p>
         <pre> {{ privateData | json }} </pre>
