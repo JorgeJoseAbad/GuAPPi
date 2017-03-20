@@ -1,39 +1,39 @@
 
 <div class="main-container">
 
- <div class="container-fluid">
+   <div class="container-fluid">
       <div class="home-heading text-center row">
           <h3>GuAAPi takes care of your pets</h3>
       </div>
     </div>
 
-  <div class="container-fluid">
-    <nav class="navbar">
 
-          <div class="row">
-                   <div class="logo-image">
-                      <a href="/" class="nav-logo-link">
-                        <img class="img-circle" src="http://localhost:3000/public/images/snoopy222.jpg" alt="GuAPPi Logo">
-                      </a>
-                    </div>
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+          <a class="navbar-brand" href="/">
+             <img src="http://localhost:3000/public/images/snoopy222.jpg" width="40" height="40" alt="GuAPPi Logo">
+          </a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                    <div class="col-md-1">
-                      <a [routerLink]="['login']">login</a>
-                    </div>
-                      <div class="col-md-1">
-                    <a [routerLink]="['signup']"> Signup</a>
-                    </div>
-                      <div class="col-md-1">
-                    <a [routerLink]="['dog']"> Dogs </a>
-                    </div>
-                      <div class="col-md-1">
-                      <a [routerLink]="['']"> Profile</a>
-                    </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
 
+              <li class="nav-item">
+                <a [routerLink]="['login']">login</a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['signup']"> Signup</a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['dog']"> Dogs </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['']"> Profile</a>
+              </li>
 
-        </div>
-    </nav>
-
-  </div>
+            </ul>
+          </div>
+      </nav>
 
 </div>
