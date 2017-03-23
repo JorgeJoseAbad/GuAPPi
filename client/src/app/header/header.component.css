@@ -2,7 +2,7 @@
 
 .container-fluid{
   background-color: #CC9C9C;
-  height: 70px;
+  height: 50px;
 
 }
 .navbar-navbar-light-bg-faded{
@@ -11,8 +11,8 @@
 }
 
 .img-circle{
-  height: 25%;
-  width: 25%;
+  height: 6%;
+  width: 6%;
   position: static;
 
 }

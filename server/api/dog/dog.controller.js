@@ -6,7 +6,7 @@ const dogModel = require('./dog.model');
 
 
 
-console.log("he llegado a controlador de chuhos");
+console.log("he llegado a controlador de perros");
 
 
 exports.createDog = function(req, res, next) {
