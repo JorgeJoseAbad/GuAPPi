@@ -8,6 +8,7 @@ const BREED = [
   "setter",
   "spaniel",
   "chiguagua",
+  "caniche",
 ];
 
 const dogSchema = new mongoose.Schema({

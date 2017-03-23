@@ -9,7 +9,7 @@ import { DogService} from '../dog.service';
 })
 export class DogComponent implements OnInit {
   dogs;
-
+  
 
   constructor(
     private route: ActivatedRoute,

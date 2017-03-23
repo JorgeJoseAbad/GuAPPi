@@ -31,6 +31,7 @@ export class GooglemapComponent implements OnInit {
     //this.dogService.getList().subscribe((dogs)=> this.dogs = dogs )
   }
 
+
   log(){
 
   this.dogService.getList().subscribe((dogs)=> this.dogs = dogs )
